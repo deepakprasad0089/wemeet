@@ -55,7 +55,7 @@
         sessionStorage.setItem('token',token)
         sessionStorage.setItem('room',room)
         sessionStorage.setItem('name',name)
-        window.open('room/','_self')
+        window.open(`/room/${room}/`,'_self')
     }
     
     form.addEventListener('submit',handleSubmit)

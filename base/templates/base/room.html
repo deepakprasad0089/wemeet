@@ -29,12 +29,15 @@
 
 
      <!---->
-     <div id="chat-wrapper">
+  <div id="chat-wrapper">
      <img class="control-icon" id="chat-btn" src="{% static 'images/chat-icon.svg'%}"/>
      <div id = "chat-popup" style="display: none;">
      {% include 'chat.html' %}
      </div>
      </div>
+
+
+
      
    </section>
 
@@ -52,6 +55,9 @@
 
 <script type="text/javascript" src="{% static 'assets/AgoraRTC_N-4.16.1.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/streams.js' %}"></script>
+<script src="{% static 'js/chat.js' %}"></script>
+
+
 
 
 {% endblock content %}

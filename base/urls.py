@@ -3,7 +3,7 @@ from .import views
 
 urlpatterns=[
     path('', views.lobby),
-    path('room/', views.room),
+    path('room/<str:room_name>/', views.room),
     path('get_token/', views.getToken),
 
     path('create_member/', views.createMember),

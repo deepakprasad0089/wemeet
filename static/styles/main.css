@@ -168,19 +168,104 @@ body{
     right: 20px;
     z-index: 10000;
 }
-#chat-popup{
-    display: none;
+/* Chat Popup Container */
+#chat-popup {
+    display: none;                 /* initial hidden */
     position: fixed;
     bottom: 80px;
     right: 20px;
-    width: 320px;
-    height: 400px;
-    background-color: #fff;
-    box-shadow: var(--shaddow);
-    border-radius: 8px;
-    overflow-y: auto;
+    width: 350px;
+    height: 450px;
+    background-color: #fefefe;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
     z-index: 10001;
-}               
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chat Header */
+#chat-popup h1, #chat-popup h3 {
+    margin: 0;
+    padding: 10px 15px;
+    background-color: rgba(75,95,172,1);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Chat Box (Messages Area) */
+#chat-box {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+
+/* Individual Messages */
+#chat-box p {
+    margin: 5px 0;
+    padding: 8px 12px;
+    border-radius: 12px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+#chat-box p:nth-child(odd) { /* messages sent by me */
+    background-color: rgba(75,95,172,1);
+    color: #fff;
+    align-self: flex-end;
+}
+
+#chat-box p:nth-child(even) { /* messages received */
+    background-color: #e0e0e0;
+    color: #000;
+    align-self: flex-start;
+}
+
+/* Chat Input Form */
+#chat-form {
+    display: flex;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+#message-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    border-radius: 0;
+}
+
+#chat-form button {
+    padding: 0 15px;
+    background-color: rgba(75,95,172,1);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+#chat-form button:hover {
+    background-color: #38b3d6;
+}
+
+/* Scrollbar Styling */
+#chat-box::-webkit-scrollbar {
+    width: 6px;
+}
+
+#chat-box::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+}
+ 
+
 /* ---------- Responsive ---------- */
 @media screen and (max-width:950px){
     #video-streams{

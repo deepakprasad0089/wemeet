@@ -28,8 +28,10 @@ def lobby(request):
 
 
 
-def room(request):
-    return render(request,'base/room.html')
+def room(request, room_name):
+    return render(request, 'base/room.html', {'room_name': room_name})
+
+
 
 @csrf_exempt
 def createMember(request):
