@@ -9,3 +9,13 @@ class RoomMember(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+
+class Chat(models.Model):
+    room= models.ForeignKey(RoomMember, on_delete=models.CASCADE)
+    message= models.TextField()
+    timestamp= models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"{self.room.name}: {self.message[:50]}..."
+

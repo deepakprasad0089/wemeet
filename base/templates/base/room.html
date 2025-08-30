@@ -20,10 +20,34 @@
           
      </div>
      <div class="icon-wrapper">
+          <img class="control-icon" id="screen-btn" src="{% static 'images/screen.svg'%}"/>
+     </div>
+     <div class="icon-wrapper">
           <img class="control-icon" id="leave-btn" src="{% static 'images/left.svg'%}"/>
           
      </div>
+
+
+     <!---->
+     <div id="chat-wrapper">
+     <img class="control-icon" id="chat-btn" src="{% static 'images/chat-icon.svg'%}"/>
+     <div id = "chat-popup" style="display: none;">
+     {% include 'chat.html' %}
+     </div>
+     </div>
+     
    </section>
+
+ <!--<section id="chat-wrapper">
+     <img class="control-icon" id="chat-btn" src="{% static 'images/chat-icon.svg'%}"/>
+     <div id = "chat-popup" style="display: none;">
+     {% include 'chat.html' %}
+     </div>
+ </section>
+-->
+ 
+<div id="small-videos-wrapper"></div>
+   
 </main>
 
 <script type="text/javascript" src="{% static 'assets/AgoraRTC_N-4.16.1.js' %}"></script>

@@ -64,3 +64,33 @@ def deleteMember(request):
     )
     member.delete()
     return JsonResponse('Member deleted', safe=False)
+
+
+
+
+sharers = {}  # simple in-memory dict: {room_name: sharer_UID}
+
+@csrf_exempt
+def set_sharer(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        room_name = data.get("room_name")
+        uid = data.get("UID")
+        sharers[room_name] = uid
+        return JsonResponse({"success": True})
+    
+@csrf_exempt
+def get_sharer(request):
+    room_name = request.GET.get("room_name")
+    uid = sharers.get(room_name)
+    return JsonResponse({"sharerId": uid})
+
+
+@csrf_exempt
+def remove_sharer(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        room_name = data.get("room_name")
+        if room_name in sharers:
+            del sharers[room_name]
+        return JsonResponse({"success": True})
