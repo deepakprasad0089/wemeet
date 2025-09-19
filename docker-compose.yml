@@ -1,0 +1,10 @@
+version: '3.8.10'
+
+services:
+  web:
+    build: .
+    command: daphne -b 0.0.0.0 -p 8000 videochat.asgi:application
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
