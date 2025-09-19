@@ -26,6 +26,11 @@ pip install -r requirements.txt
 # 5. Run the application
 daphne -p 8000 videochat.asgi:application
 
+# ( If docker )
+docker compose up -d  #run
+docker ps             # check current container id
+docker stop <container_id>  #stop
+
 # The app will run on port 8000
 # Open your browser at http://localhost:8000
 
